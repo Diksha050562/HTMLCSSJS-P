@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DikshasMindD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div id="firstS">
+            <h1>Journal Series</h1>
+        <p><b>Write your thoughts</b></p>
+        <textarea id="journalId" rows="10" cols="50" placeholder="Write here..."></textarea>
+        <br>
+        <button onclick="saveEntry()">Save Entry</button>
+        <h3>Your Journal Entries:</h3>
+        </div>
+        <div id="displayEntry">
+            <script>
+                // Keep track of entry count
+                let entryCount = 0;
+                function saveEntry() {
+                    const entry = document.getElementById('journalId').value;
+                    if (entry.trim() !== '') {
+                        // Increment counter for each new entry
+                        entryCount++;
+                        
+                        // Add only one entry with the correct number
+                        document.getElementById('displayEntry').innerHTML += `
+                            <p>${entryCount}. ${entry}</p>
+                        `;
+                        
+                        document.getElementById('journalId').value = '';
+                    } else {
+                        alert('Please write something before saving!');
+                    }
+                }
+            </script>
+            <button id="ce" onclick="clearEntries()">Clear Entries</button>
+            <script>
+                function clearEntries() {
+                    document.getElementById('displayEntry').innerHTML = '';
+                    entryCount = 0; // Reset the entry count
+                }
+            </script>
+        </div>
+            
+    </section>
+</body>
+<footer>
+    <p>
+<a href="https://www.instagram.com/your_instagram_handle/" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" width="17" height="17">
+</a>
+<a href="mailto:your.email@gmail.com">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" alt="Gmail" width="19" height="15">
+</a>
+&copy; 2024 OMinds. All rights reserved.
+    </p>
+</html>
